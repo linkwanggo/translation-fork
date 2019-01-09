@@ -1,6 +1,6 @@
 {
   "name": "translation-jsapi",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "集成多种翻译引擎并提供统一的翻译接口。",
   "repository": {
     "type": "git",
