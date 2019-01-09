@@ -1,18 +1,20 @@
-# translation.js [![NPM Version](https://img.shields.io/npm/v/translation.js.svg?style=flat-square)](https://www.npmjs.com/package/translation.js)
+# translation-jsapi [![NPM Version](https://img.shields.io/npm/v/translation-jsapi.svg?style=flat-square)](https://www.npmjs.com/package/translation-jsapi)
 
-translation.js 整合了[谷歌翻译](https://translate.google.cn/)、[百度翻译](https://fanyi.baidu.com/)与[有道翻译](http://fanyi.youdao.com/)的网页翻译接口，让你方便的在这些翻译接口之间切换，并获取相同数据结构的翻译结果。
+translation-jsapi 为 [translation.js](https://github.com/Selection-Translator/translation.js) 的衍生版本，对 translation.js 进行了一些修复和扩展。
+
+translation-jsapi 整合了[谷歌翻译](https://translate.google.cn/)、[百度翻译](https://fanyi.baidu.com/)与[有道翻译](http://fanyi.youdao.com/)的网页翻译接口，让你方便的在这些翻译接口之间切换，并获取相同数据结构的翻译结果。
 
 ## 特点
 
 ### 可在 Node.js 及 Chrome 扩展 / 应用中使用
 
-translateion.js 能同时在 Node.js 和浏览器端运行，但由于浏览器端[同源策略](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)的限制，这些网页接口只能在允许跨域的运行环境使用，Chrome 扩展 / 应用则是其中之一。
+translation-jsapi 能同时在 Node.js 和浏览器端运行，但由于浏览器端[同源策略](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)的限制，这些网页接口只能在允许跨域的运行环境使用，Chrome 扩展 / 应用则是其中之一。
 
-**注意**：为了能在 Chrome 扩展 / 应用中使用 translation.js，请阅读[在 Chrome 扩展 / 应用中使用](#在-chrome-扩展--应用中使用)。
+**注意**：为了能在 Chrome 扩展 / 应用中使用 translation-jsapi，请阅读[在 Chrome 扩展 / 应用中使用](#在-chrome-扩展--应用中使用)。
 
 ### 一致的参数与数据结构
 
-每个网页翻译的接口都有不同的参数和翻译结果，translation.js 统一了这些不同之处并提供了一致的 API，同时提供了每个接口的源数据方便自定义处理。
+每个网页翻译的接口都有不同的参数和翻译结果，translation-jsapi 统一了这些不同之处并提供了一致的 API，同时提供了每个接口的源数据方便自定义处理。
 
 ## 安装
 
@@ -21,17 +23,17 @@ translateion.js 能同时在 Node.js 和浏览器端运行，但由于浏览器�
 先用 NPM 安装：
 
 ```
-npm install translation.js
+npm install translation-jsapi
 ```
 
 然后在代码中引用：
 
 ```js
 // CommonJS 中
-const { youdao, baidu, google } = require('translation.js')
+const { youdao, baidu, google } = require('translation-jsapi')
 
 // ES6 中
-import { youdao, baidu, google } from 'translation.js'
+import { youdao, baidu, google } from 'translation-jsapi'
 ```
 
 ### 使用 &lt;script&gt; 标签
@@ -95,7 +97,7 @@ google.translate('test').then(result => {
 }
 ```
 
-**注意**：translation.js 中所有的语种格式都以[谷歌翻译支持的语种](https://cloud.google.com/translate/docs/languages)为准。
+**注意**：translation-jsapi 中所有的语种格式都以[谷歌翻译支持的语种](https://cloud.google.com/translate/docs/languages)为准。
 
 ### 检测语种
 
@@ -121,7 +123,7 @@ google.audio('test').then(uri => {
 
 在浏览器端，你可以使用 [`<audio>`](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Using_HTML5_audio_and_video) 播放这段语音，给用户提供朗读功能。
 
-**注意**：谷歌翻译的语音朗读地址只能在 Chrome 扩展 / 应用中的 `<audio>` 里直接引用，在普通网页中引用时会报 404 错误，见 [#20](https://github.com/Selection-Translator/translation.js/issues/20)。
+**注意**：谷歌翻译的语音朗读地址只能在 Chrome 扩展 / 应用中的 `<audio>` 里直接引用，在普通网页中引用时会报 404 错误。
 
 你可以使用 `from` 参数指定文本的语种，这样会跳过检测语种的步骤（通常是一次 HTTP 请求）。
 
@@ -158,7 +160,7 @@ google.translate({
 
 ### 使用谷歌国际翻译接口
 
-默认情况下，translation.js 从 translate.google.**_cn_** 获取翻译结果、语种检测及语音地址，但**如果你的运行环境支持**，你也可以从 translate.google.**_com_** 获取数据：
+默认情况下，translation-jsapi 从 translate.google.**_cn_** 获取翻译结果、语种检测及语音地址，但**如果你的运行环境支持**，你也可以从 translate.google.**_com_** 获取数据：
 
 ```js
 google.translate({
