@@ -43,8 +43,9 @@ const translateAPI = link + '/translate_o?smartresult=dict&smartresult=rule'
 // 有道跟百度一样，通过添加一个 Cookie 鉴别请求是否来自网页
 const headers = IS_NODE
   ? { Referer: link, Cookie: 'OUTFOX_SEARCH_USER_ID=1327810919@10.168.8.64' }
-  : undefined
+  : undefined;
 
+// @ts-ignore
 export default async function(options: StringOrTranslateOptions) {
   let { text, from = '', to = '' } =
     typeof options === 'string' ? { text: options } : options
@@ -87,7 +88,8 @@ export default async function(options: StringOrTranslateOptions) {
           doctype: 'json',
           version: '2.1',
           keyfrom: 'fanyi.web',
-          action: 'FY_BY_REALTIME',
+          // action: 'FY_BY_REALTIME',
+            action: 'FY_BY_CLICKBUTTION',
           typoResult: 'false'
         },
         sign(text)

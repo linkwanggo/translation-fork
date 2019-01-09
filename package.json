@@ -1,6 +1,6 @@
 {
   "name": "translation-jsapi",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "集成多种翻译引擎并提供统一的翻译接口。",
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
     "chrome-youdao.js"
   ],
   "scripts": {
+    "test": "mocha tests/translation.test.js",
     "lint": "tslint --project tsconfig.json -t verbose",
     "build": "node build/build",
     "prepublishOnly": "npm run build"
@@ -25,6 +26,7 @@
     "@types/blueimp-md5": "^2.7.0",
     "@types/node": "^9.3.0",
     "blueimp-md5": "^2.10.0",
+    "chai": "^4.2.0",
     "tslib": "^1.8.1"
   },
   "devDependencies": {

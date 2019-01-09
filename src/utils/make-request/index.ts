@@ -8,6 +8,8 @@ import { stringify } from 'querystring'
 import getError, { ERROR_CODE } from '../error'
 
 export default function(options: RequestOptions): Promise<any> {
+
+  // @ts-ignore
   const { method = 'get' } = options
   const urlObj = parse(options.url, true)
   const qs = stringify(Object.assign(urlObj.query, options.query))
