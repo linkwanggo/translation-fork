@@ -17,7 +17,7 @@
     "chrome-youdao.js"
   ],
   "scripts": {
-    "test": "mocha -r ts-node/register tests/**/*.test.ts",
+    "test": "mocha -r './tsnode.js' tests/**/*.test.ts",
     "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test",
     "lint": "tslint --project tsconfig.json -t verbose",
     "build": "node build/build",
@@ -26,7 +26,8 @@
   "dependencies": {
     "@types/blueimp-md5": "^2.7.0",
     "@types/node": "^9.3.0",
-    "blueimp-md5": "^2.18.0"
+    "blueimp-md5": "^2.18.0",
+    "ts-transformer-keys": "^0.4.2"
   },
   "devDependencies": {
     "@types/chai": "^4.2.12",
