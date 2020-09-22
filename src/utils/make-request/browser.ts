@@ -67,7 +67,7 @@ export default function(options: RequestOptions): Promise<any> {
     }
 
     xhr.onerror = e => {
-      reject(getError(ERROR_CODE.NETWORK_ERROR, e.message))
+      reject(getError(ERROR_CODE.NETWORK_ERROR,xhr.responseText || '网络请求失败'))
     }
 
     xhr.send(body)
